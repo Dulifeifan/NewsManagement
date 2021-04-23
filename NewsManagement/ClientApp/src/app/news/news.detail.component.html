@@ -1,0 +1,21 @@
+<div style="text-align:center">
+  <h1>{{n.title}}</h1>
+</div>
+<hr>
+<div style="text-align:center">
+  <p>{{n.description}}</p>
+</div>
+<div style="text-align:center">
+  <img class='center-block img-responsive' [style.width.px]='500' [style.margin.px]='2' [src]='n.imageUrl'
+    [title]='n.productName'>
+</div>
+<br>
+<div>
+  <p>{{n.content}}</p>
+</div>
+<br>
+<div style="text-align:center">
+  <button class='btn btn-outline-secondary' style='width:80px' (click)='onBack()'>
+    <i class='fa fa-chevron-left'></i> Back
+  </button>
+</div>

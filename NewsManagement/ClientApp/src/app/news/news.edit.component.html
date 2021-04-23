@@ -1,0 +1,73 @@
+<div>
+    <div class='row'>
+        <div class='col-md-2'>
+            Title:
+        </div>
+        <div class='col-md-10'>
+            <input type="text" [(ngModel)]='title' />
+        </div>
+        
+    </div>
+</div>
+<br>
+<div>
+    <div class='row'>
+        <div class='col-md-2'>
+            Description:
+        </div>
+        <div class='col-md-10'>
+            <input type="text" [(ngModel)]='description' />
+        </div>
+        
+    </div>
+</div>
+<br>
+<div>
+    <div class='row'>
+        <div class='col-md-2'>
+            Image Link:
+        </div>
+        <div class='col-md-10'>
+            <input type="text" [(ngModel)]='imageUrl' />
+        </div>
+        
+    </div>
+</div>
+<br>
+<div>
+    <div class='row'>
+        <div class='col-md-2'>
+            Content:
+        </div>
+        <div class='col-md-10'>
+            <input type="text" [(ngModel)]='content' />
+        </div>
+        
+    </div>
+</div>
+<br>
+<div>
+    <div class='row'>
+        <div class='col-md-2'>
+            Publish:
+        </div>
+        <div class='col-md-10' style="text-align:left"  *ngIf='published==true' >
+            <input type="checkbox"  [(ngModel)]='published' />
+        </div>
+        <div class='col-md-10' style="text-align:left"  *ngIf='published==false' >
+            <input type="checkbox" [(ngModel)]='published' />
+        </div>
+        
+    </div>
+</div>
+<br>
+<br>
+<div style="text-align:center">
+    <button class='btn btn-outline-secondary' style='width:80px' (click)='onSave()'>
+        <i class='fa fa-chevron-left'></i> Save
+    </button>
+    &nbsp;&nbsp;
+    <button class='btn btn-outline-secondary' style='width:80px' (click)='onBack()'>
+        <i class='fa fa-chevron-left'></i> Back
+    </button>
+</div>

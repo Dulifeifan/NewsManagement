@@ -1,0 +1,59 @@
+<div>
+    <div class='row'>
+        <div class='col-md-2'>
+            Filter title by:
+        </div>
+        <div class='col-md-8'>
+            <input type="text" [(ngModel)]='listFilter' />
+        </div>
+        <div class='col-md-2' *ngIf="isAuthenticated | async">
+            <a [routerLink]="['/news-add']">
+                + Create New
+            </a>
+        </div>
+    </div>
+</div>
+
+<div *ngIf='news?.length'>
+    <div *ngFor='let n of filteredNews'>
+        
+        <div *ngIf='n.published || (isAuthenticated | async)'>
+            <br>
+            <div class='card'>
+                <div class='card-header'>
+                    <a [routerLink]="['/news-detail', n.id]">
+                        {{n.published? n.title: "Draft: "+n.title}}
+                    </a>
+                </div>
+                <div class='card-body'>
+                    <div class='row'>
+                        <div class='col-md-4'>
+                            <img class='center-block img-responsive' [style.width.px]='200' [style.margin.px]='2'
+                                [src]='n.imageUrl' [title]='n.title'>
+                        </div>
+                        <div class='col-md-8'>
+                            <p>{{n.description}}</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class='card-footer' *ngIf="isAuthenticated | async">
+                    <div class='row'>
+                        <div class='col-md-1'>
+                            <a [routerLink]="['/news-edit', n.id]">
+                                Edit
+                            </a>
+                        </div>
+                        <div class='col-md-1'>
+                            <a href="/news-list" (click)='onDelete(n)'>
+                                Delete
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
